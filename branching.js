@@ -88,35 +88,30 @@ function describeNumber(n) {
 console.log(describeNumber(24));
 
 // Задание 7
-function getDayName(dayNumber) {
-    switch (dayNumber) {
-        case 1:
-            return "Monday";
-            break;
-        case 2:
-            return "Tuesday";
-            break;
-        case 3:
-            return "Wednesday";
-            break;
-        case 4:
-            return "Thursday";
-            break;
-        case 5:
-            return "Friday";
-            break;
-        case 6:
-            return "Saturday";
-            break;
-        case 7:
-            return "Sunday";
-            break;
-        default:
-            return "Invalid day number.";
-            break;
+export function getDayName(dayNumber) {
+    if (dayNumber === 1) {
+        return "monday";
+    } else if (dayNumber === 2) {
+        return "tuesday";
+    } else if (dayNumber === 3) {
+        return "wednesday";
+    } else if (dayNumber === 4) {
+        return "thursday";
+    } else if (dayNumber === 5) {
+        return "friday";
+    } else if (dayNumber === 6) {
+        return "saturday";
+    } else if (dayNumber === 7) {
+        return "sunday";
+    } else {
+        return "Invalid day number.";
     }
 }
-console.log(getDayName(1));
+
+console.log(getDayName(1)); // "monday"
+console.log(getDayName(4)); // "thursday"
+console.log(getDayName(7)); // "sunday"
+
 
 // Задание 8
 function convertToMeters(unitNumber, lengthInUnits) {
@@ -145,62 +140,24 @@ function convertToMeters(unitNumber, lengthInUnits) {
 console.log(convertToMeters(4, 12));
 
 // Задание 9
-function describeAge(age) {
-    let first_num = Math.floor(age / 10);
-    let second_num = age % 10;
-    switch(first_num) {
-        case 2:
-            first_num = "двадцать";
-            break;
-        case 3:
-            first_num = "тридцать";
-            break;
-        case 4:
-            first_num = "сорок";
-            break;
-        case 5:
-            first_num =  "пятьдеcят";
-            break;
-        case 6:
-            first_num = "шестьдесят";
-            break;
+export function describeAge(age) {
+    const units = ["", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять"];
+    const tens = ["", "десять", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят"];
+    
+    const unit = units[age % 10];
+    const ten = tens[Math.floor(age / 10)];
+    
+    if (unit === "один") {
+        return `${ten} ${unit} год`;
+    } else {
+        return `${ten} ${unit} лет`;
     }
-    switch(second_num) {
-        case 0:
-            second_num = "лет";
-            break;
-        case 1:
-            second_num = "один год";
-            break;
-        case 2:
-            second_num = "два года";
-            break;
-        case 3:
-            second_num = "три года";
-            break;
-        case 4:
-            second_num = "четыре года";
-            break;
-        case 5:
-            second_num = "пять лет";
-            break;
-        case 6:
-            second_num =  "шесть лет";
-            break;
-        case 7:
-            second_num = "семь лет";
-            break;
-        case 8:
-            second_num = "восемь лет";
-            break;
-        case 9:
-            second_num = "девять лет";
-            break;
-    }
- return first_num + " " + second_num;
 }
 
-console.log(describeAge(45));
+console.log(describeAge(20)); // "двадцать лет"
+console.log(describeAge(32)); // "тридцать два года"
+console.log(describeAge(41)); // "сорок один год"
+
 
 // Задание 10
 function describeNumber2(number) {
